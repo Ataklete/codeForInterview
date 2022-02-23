@@ -6,6 +6,8 @@ public class Exersice4 {
 
         int[] arr = {5,10,8, 6, 1, 7, 3, 9, 2, 4};
 
+        System.out.println("----" + Arrays.toString(arr));
+
         int firstMax = 0;
         int secondMax = 0;
         int maxIndex = 0;
