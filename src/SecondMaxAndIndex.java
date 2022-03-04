@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Exersice4 {
+public class SecondMaxAndIndex {
 
     public static void main(String[] args) {
 

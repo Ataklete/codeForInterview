@@ -2,7 +2,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class Exersice6 {
+public class StreamDup {
     public static void main(String[] args) {
         List<Integer> stream = new ArrayList<>(Arrays.asList(1, 2, 2, 5, 6, 8, 8, 4, 4, 4, 3, 9, 9));
         Map<Integer, Integer> map = new HashMap<>();

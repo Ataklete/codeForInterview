@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Exersice5 {
+public class SuccessCountCharNumber {
 
     public static void main(String[] args) {
         String str = "success";
