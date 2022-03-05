@@ -70,31 +70,31 @@ public class MergeSort {
         //ms.testMerge();
         ms.testMergeSort();
     }
-    public void testMerge() {
-
-        //create an array whose left half is sorted and whose
-        //right half is sorted
-        loadArray();
-        int n = theArray.length;
-        int[] tempStorage = null;
-        int half = n/2;
-        tempStorage = new int[n];
-        mergeSort(tempStorage,0,half);
-        tempStorage = new int[n];
-        mergeSort(tempStorage, (n/2)+1, n-1);
-
-        //begin display -- start with left half sorted, right half sorted
-        System.out.println();
-        System.out.println("an array with left half sorted and right half sorted:");
-        displayArray(theArray);
-        System.out.println();
-        System.out.println("merging the two halves...");
-
-        //call the merge method and display results
-        tempStorage = new int[n];
-        merge(tempStorage,0,half+1,n-1);
-        displayArray(theArray);
-    }
+//    public void testMerge() {
+//
+//        //create an array whose left half is sorted and whose
+//        //right half is sorted
+//        loadArray();
+//        int n = theArray.length;
+//        int[] tempStorage = null;
+//        int half = n/2;
+//        tempStorage = new int[n];
+//        mergeSort(tempStorage,0,half);
+//        tempStorage = new int[n];
+//        mergeSort(tempStorage, (n/2)+1, n-1);
+//
+//        //begin display -- start with left half sorted, right half sorted
+//        System.out.println();
+//        System.out.println("an array with left half sorted and right half sorted:");
+//        displayArray(theArray);
+//        System.out.println();
+//        System.out.println("merging the two halves...");
+//
+//        //call the merge method and display results
+//        tempStorage = new int[n];
+//        merge(tempStorage,0,half+1,n-1);
+//        displayArray(theArray);
+//    }
     public void testMergeSort(){
         loadArray();
         System.out.println("initial array:");

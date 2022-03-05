@@ -73,11 +73,11 @@ public class LinkedList {
         LinkedList linkedList = new LinkedList();
 //        linkedList.add(1);
 //        linkedList.add(2);
-        linkedList.add("Ati");
-        linkedList.add("Joseph");
-        linkedList.add("Henok");
-        linkedList.add("Helen");
-        linkedList.add("Saba");
+//        linkedList.add("Ati");
+//        linkedList.add("Joseph");
+//        linkedList.add("Henok");
+//        linkedList.add("Helen");
+//        linkedList.add("Saba");
         System.out.println(linkedList);
         System.out.println();
         linkedList.insertOrder("Ati");
