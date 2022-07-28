@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Stream;
 
 
 // return an average salary from a list of employee
@@ -22,6 +23,8 @@ public class Average {
                 map.put(e.getName(), e.getSalary() + map.get(e.getName()));
             }
         }
+        Stream<Boolean> booleanStream = emp.stream().map(i -> i.getName().equals(i.getName()));
+        System.out.println(booleanStream);
         double sum = 0;
         for(Map.Entry<String,Double> a : map.entrySet()){
             sum += a.getValue();
