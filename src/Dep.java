@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -45,5 +46,13 @@ public class Dep {
         System.out.println();
         long end1 = System.currentTimeMillis();
         System.out.println("finished forEach loop: " + (end1 - start1));
+        System.out.println("-----////////-----------===========");
+//        Stream.of(str.split(" ")).flatMap(s -> Stream.of(str.split(" ")).map(x -> x.substring(0, 1).
+//                toUpperCase() + x.substring(1) + " ")).forEach(System.out::print);
+        //??????????????
+        System.out.println("????????????????????????????");
+        Stream.of(str.split(" ")).map(x -> x.substring(0, 1).
+                toUpperCase() + x.substring(1) + " ").forEach(System.out::print);
+
     }
 }
