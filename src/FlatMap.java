@@ -1,9 +1,10 @@
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class FlatMap {
+public class FlatMap  {
 
     public static void main(String[] args) {
         String st = "enterprisejavaprogramming";
@@ -33,7 +34,10 @@ public class FlatMap {
                 .entrySet()
                 .stream()
                 .filter(x->x.getValue()>1)
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .forEach(y-> System.out.println(y));
+        int size = Runtime.getRuntime().availableProcessors();
+        System.out.println("Run....... " + size);
 
         System.out.println("===========");
         map.entrySet().stream()
@@ -51,11 +55,41 @@ public class FlatMap {
 
         List<String>  list4 = Arrays.asList("Johney", "Sean","Jude");
 
-        List<String> str1 = Stream.of(list1,list2,list3,list4).flatMap(str->str.stream().filter(a->a.startsWith("J"))).collect(Collectors.toList());
+        List<String> str1 = Stream.of(list1,list2,list3,list4)
+                            .flatMap(str->str.stream().filter(a->a.startsWith("J")))
+                            .collect(Collectors.toList());
 
         System.out.println(str1);
 
+        String[] names = {
+                "Haftom", "Mesfin"
+        };
 
+        Arrays.stream(names)
+                .forEach(System.out::println);
+
+        Integer numbers[][] = new Integer[][] {
+                {1,2,3}, {4,5}
+        };
+        Arrays.stream(numbers)
+                .forEach(System.out::println);
+
+        Arrays.stream(numbers)
+                .flatMap(x->Arrays.stream(x))
+                .forEach(System.out::println);
+
+        List<List<Integer>> listOfLists = Arrays.asList(Arrays.asList(1,2,3), Arrays.asList(4,5,6,7));
+
+        listOfLists.stream().forEach(System.out::println);
+
+        listOfLists.stream()
+                .flatMap(x->x.stream())
+                .forEach(System.out::println);
+
+        List<Integer> afterFlatMap = listOfLists.stream()
+                .flatMap(x->x.stream())
+                .collect(Collectors.toList());
+        System.out.println(afterFlatMap);
 
 
 

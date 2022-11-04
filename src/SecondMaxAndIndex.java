@@ -1,10 +1,11 @@
 import java.util.Arrays;
+import java.util.Stack;
 
 public class SecondMaxAndIndex {
 
     public static void main(String[] args) {
 
-        int[] arr = {5,10,8, 6, 1, 7, 3, 9, 2, 4};
+        int[] arr = {5, 10, 8, 6, 1, 7, 3, 9, 2, 4};
 
         System.out.println("----" + Arrays.toString(arr));
 
@@ -19,7 +20,8 @@ public class SecondMaxAndIndex {
                 maxIndex2 = maxIndex;
                 firstMax = arr[i];
                 maxIndex = i;
-            } if(firstMax>arr[i] && arr[i]>secondMax) {
+            }
+            if (firstMax > arr[i] && arr[i] > secondMax) {
                 secondMax = arr[i];
                 maxIndex2 = i;
             }
@@ -28,10 +30,10 @@ public class SecondMaxAndIndex {
 
         //second option
         Arrays.sort(arr);
-        int res = 0;
-        for (int i = 0; i < arr.length; i++) {
-            res = arr[arr.length-2];
-        }
-        System.out.println("the second largest number is: " + res );
+//        int res = 0;
+//        for (int i = 0; i < arr.length; i++) {
+//            res = arr[arr.length-2];
+//        }
+        System.out.println("the second largest number is: " + arr[arr.length - 2]);
     }
 }

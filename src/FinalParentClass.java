@@ -1,10 +1,16 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class FinalParentClass {
-    private String name = "Ate";
+    private static String name = "Ate";
     private String lastName = "Haile";
     private static int num = 10;
+
+    public FinalParentClass(String name, String lastName) {
+        this.name = name;
+        this.lastName = lastName;
+    }
 
     static {
         System.out.println("super static block");
@@ -16,18 +22,14 @@ public class FinalParentClass {
     public FinalParentClass() {
         System.out.println("super constructor called");
     }
+    public FinalParentClass(String a) {
+        this.lastName = a;
+        System.out.println("super constructor called");
+    }
 
-    public void test(){
-        System.out.println("parent test method");
+    public static void testMethod(){
+        System.out.println("parent testMethod method");
         System.out.println(num);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getLastName() {
-        return lastName;
     }
 
 }
@@ -42,9 +44,8 @@ class Child extends FinalParentClass {
     {
         System.out.println("child instance block");
     }
-
-    public void test(){
-        System.out.println("child test mehtod");
+    public static void testMethod(){
+        System.out.println("child testMethod mehtod");
         System.out.println(num);
     }
 
@@ -52,8 +53,8 @@ class Child extends FinalParentClass {
 class Main{
     public final static void main(String[] args) {
         FinalParentClass f = new Child();
-        f.test();
+        f.testMethod();
         FinalParentClass f1 = new FinalParentClass();
-        f.test();
+        f.testMethod();
     }
 }
