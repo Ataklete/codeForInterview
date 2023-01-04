@@ -11,54 +11,51 @@ public class BalanceSymbol {
             if (ch == '{' || ch == '(' || ch == '[') {
                 stack.push(ch);
                 continue;
-            }
-            else if (stack.isEmpty())
+            } else if (stack.isEmpty())
                 return false;
-                char check;
-                switch (ch) {
-                    case ')':
-                        check = stack.pop();
-                        if (check == '{' || check == '[')
-                            return false;
-                        break;
+            char check;
+            switch (ch) {
+                case ')':
+                    check = stack.pop();
+                    if (check == '{' || check == '[')
+                        return false;
+                    break;
 
-                    case '}':
-                        check = stack.pop();
-                        if (check == '(' || check == '[')
-                            return false;
-                        break;
+                case '}':
+                    check = stack.pop();
+                    if (check == '(' || check == '[')
+                        return false;
+                    break;
 
-                    case ']':
-                        check = stack.pop();
-                        if (check == '(' || check == '{')
-                            return false;
-                        break;
-                }
+                case ']':
+                    check = stack.pop();
+                    if (check == '(' || check == '{')
+                        return false;
+                    break;
+            }
         }
         return true;
     }
+
     public static boolean checkSymbolBalanceUsingHashMap(String s) {
         Deque<Character> stack = new ArrayDeque<>();
         HashMap<Character, Character> pair = new HashMap();
         pair.put(']', '[');
         pair.put('}', '{');
         pair.put(')', '(');
-        char[] charArray = s.toCharArray();
-        for (Character ch : charArray) {
+        for (Character ch : s.toCharArray()) {
             if (Character.isDigit(ch) || Character.isLetter(ch))
                 return false;
             else if (ch == '{' || ch == '(' || ch == '[') {
                 stack.push(ch);
                 continue;
-            }
-                else if (ch == '}' || ch == ')' || ch == ']') {
-                    if(!stack.isEmpty()){
+            } else if (ch == '}' || ch == ')' || ch == ']') {
+                if (!stack.isEmpty()) {
                     if (pair.get(ch) == stack.pop()) {
                         continue;
-                     }
-                    else return false;
-                    }
+                    } else return false;
                 }
+            }
         }
         if (stack.isEmpty())
             return true;
@@ -70,7 +67,7 @@ public class BalanceSymbol {
         if (s.isEmpty())
             System.out.println("String is empty ");
         else {
-            if (checkSymbolBalanceUsingHashMap(s)) {
+            if (checkSymbolBalanceUsingHashMap(s) && checkSymbolBalance(s)) {
                 System.out.println("valid");
             } else {
                 System.out.println("invalid");
