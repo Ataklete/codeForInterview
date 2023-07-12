@@ -40,7 +40,7 @@ public class StreamDup {
                                  .collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
                                  .entrySet()
                                  .stream()
-                                 .filter(i ->i.getValue()>1)
+                                 .filter(i ->i.getValue()<=1)
                                  .map(Map.Entry::getKey)
                                  .collect(Collectors.toList());
 
