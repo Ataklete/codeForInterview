@@ -2,6 +2,7 @@
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 /*
@@ -15,12 +16,11 @@ Compose*/
 public class Alphanumeric {
 
     public static int alphanumeric(char[] charArray){
+        AtomicInteger atomicInteger = new AtomicInteger(0);
         Map<Character, Integer> alpNum = new HashMap<>();
-        alpNum.put('o',15);
-        alpNum.put('h', 8);
-        alpNum.put('e', 5);
-        alpNum.put('l', 12);
-
+        for (Character ch : " abcdefghigklmnopqrstvwxyz".toCharArray()) {
+            alpNum.put(ch, atomicInteger.getAndIncrement());
+        }
         int sum = 0;
         for (Character c : charArray) {
             if (Character.isDigit(c)) {
