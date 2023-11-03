@@ -26,10 +26,11 @@ public class Alphanumeric {
             if (Character.isDigit(c)) {
                 sum += Integer.parseInt(String.valueOf(c));
             } else {
-                sum += alpNum.entrySet().stream()
-                        .filter(e -> e.getKey().equals(c))
-                        .map(e -> e.getValue())
-                        .reduce(0, (x, y) -> x + y);
+                sum += alpNum.get(c);
+//                sum += alpNum.entrySet().stream()
+//                        .filter(e -> e.getKey().equals(c))
+//                        .map(e -> e.getValue())
+//                        .reduce(0, (x, y) -> x + y);
             }
         }
         return sum;
