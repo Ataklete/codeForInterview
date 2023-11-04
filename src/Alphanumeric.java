@@ -16,9 +16,9 @@ Compose*/
 public class Alphanumeric {
 
     public static int alphanumeric(char[] charArray){
-        AtomicInteger atomicInteger = new AtomicInteger(0);
+        AtomicInteger atomicInteger = new AtomicInteger(1);
         Map<Character, Integer> alpNum = new HashMap<>();
-        for (Character ch : " abcdefghigklmnopqrstvwxyz".toCharArray()) {
+        for (Character ch : "abcdefghigklmnopqrstvwxyz".toCharArray()) {
             alpNum.put(ch, atomicInteger.getAndIncrement());
         }
         int sum = 0;
