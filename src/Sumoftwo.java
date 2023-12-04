@@ -24,10 +24,9 @@ public class Sumoftwo {
     }
     public static void main(String[] args) {
 
-        int[] arr = {2, 8, 7, 0, -1, -5, 3, -2};
-        int[] arr1 = {13, 1, 4, 6, -2, -9, -20};
-        sumToNumbers(arr);
-        sumToNumbers(arr1);
+        sumToNumbers(new int[]{2, 8, 7, 0, -1, -5, 3, -2});
+        sumToNumbers(new int[]{13, 1, 4, 6, -2, -9, -20});
+
         }
     }
 
