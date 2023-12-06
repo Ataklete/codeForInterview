@@ -1,3 +1,10 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 /*
 * A sentence is a string of single-space separated words where each word consists only of lowercase letters.
 
@@ -30,22 +37,43 @@ All the words in s1 and s2 are separated by a single space.
 */
 public class StringCustomUtil {
     public String[] testString(String s1, String s2) {
-        if(s1.length()<1 && s2.length()<=200){
+        if (s1.length() < 1 && s2.length() <= 200) {
             return null;
         }
         String[] newS1 = s1.trim().toLowerCase().split("\\s+");
         String[] newS2 = s2.trim().toLowerCase().split("\\s+");
-            if (newS1.length == newS2.length) {
-                for (int i = 0; i < s1.length() - 1; i++) {
-                    if (!newS1[i].equals(newS2[i]))
-                        return new String[]{newS1[i], newS2[i]};
+        Map<String, Integer> map = new HashMap<>();
+        List<String> list = new ArrayList<>();
+        int count = 0;
+        if (newS1.length != 1) {
+            for (int i = 0; i < newS1.length; i++) {
+                if (!map.containsKey(newS1[i])) {
+                    map.put(newS1[i], 1);
+                } else {
+                    int a = map.get(newS1[i]);
+                    map.put(newS1[i], a + 1);
                 }
-            } else {
-            for (int j = 0; j < s1.length() - 1; j++) {
-                if (newS1[j].equals(newS1[j + 1])) ;
-                return new String[]{s2};
             }
+            for (int i = 0; i < newS2.length; i++) {
+                if (!map.containsKey(newS2[i])) {
+                    map.put(newS2[i], 1);
+                } else {
+                    int a = map.get(newS2[i]);
+                    map.put(newS2[i], a + 1);
+                }
+            }
+
+            for (Map.Entry<String, Integer> a : map.entrySet()) {
+                if (a.getValue() == 1) {
+                    list.add(a.getKey());
+                }
+            }
+            String[] result = new String[list.size()];
+            for (String s : list){
+                result[count++] = s;
+            }
+            return result;
         }
-        return new String[]{s1,s2};
+        return new String[]{newS1[0],newS2[0]};
     }
 }
