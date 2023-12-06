@@ -29,8 +29,10 @@ public class SuccessCountCharNumber {
                 System.out.println(a.getKey());
 
         //sorting by value
-        System.out.println("--" +map.entrySet().stream().
+        System.out.println(map.entrySet().stream().
                 sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .filter(x -> x.getValue() == 1)
+                .map(Map.Entry::getKey)
                 .collect(Collectors.toList()));
 
         Stream.of(str.split(""))
@@ -39,10 +41,6 @@ public class SuccessCountCharNumber {
                 .stream()
                 .max(Map.Entry.comparingByValue())
                 .stream()
-                .forEach(i -> System.out.println("key = " + i.getKey() + " "+ "value = " + i.getValue()));
-
-        String s1 = "abc";
-        String s2 = "abc";
-        System.out.println("s1 == s2 is: " + s1 == s2);
+                .forEach(i -> System.out.println("key = " + i.getKey() + " " + "value = " + i.getValue()));
     }
 }
