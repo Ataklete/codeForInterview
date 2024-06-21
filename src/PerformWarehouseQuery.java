@@ -1,7 +1,7 @@
 import java.util.*;
 //Q1
 // amazon warehouse test -> perform warehouse query(shipping 3 item at one time)
-public class performWarehouseQuery {
+public class PerformWarehouseQuery {
 
     public static void main(String[] args) {
 
@@ -35,6 +35,5 @@ public class performWarehouseQuery {
             }
             System.out.println();
         }
-
     }
 }

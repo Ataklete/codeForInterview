@@ -16,7 +16,7 @@ public class Sumoftwo {
 
         Map<Integer, List<Integer>> map = new TreeMap<>();
         for (int i = 0; i <= arr.length - 1; i++) {
-            for (int j = 0; j <= arr.length - 1; j++) {
+            for (int j = i; j <= arr.length - 1; j++) {
                 map.put(Math.abs(arr[i] + arr[j]), Arrays.asList(arr[i], arr[j]));
             }
         }

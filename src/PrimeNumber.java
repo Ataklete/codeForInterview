@@ -1,7 +1,6 @@
-import javax.swing.plaf.IconUIResource;
 import java.io.IOException;
 
-public class primeNumber {
+public class PrimeNumber {
 
     public static void main(String[] args) throws IOException {
         int[] num = {2, 3, 10, 7, 15, 5, 9, 20, 21, 13, 6, 8,17,23,37};

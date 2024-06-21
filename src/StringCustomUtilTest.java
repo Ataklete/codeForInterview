@@ -8,6 +8,7 @@ public class StringCustomUtilTest {
     private StringCustomUtil st;
 
     @BeforeEach
+    
     void setUp() {
         st = new StringCustomUtil();
     }
