@@ -40,6 +40,7 @@ public class StringCustomUtil {
         }
         String[] newS1 = s1.trim().toLowerCase().split("\\s+");
         String[] newS2 = s2.trim().toLowerCase().split("\\s+");
+        System.out.println(Arrays.stream(s1.split("")).collect(Collectors.joining(",")));;
         List<String> list = new ArrayList<>();
         int count = 0;
             for (int i = 0; i < newS1.length; i++) {

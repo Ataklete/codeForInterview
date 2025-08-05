@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.List;
 
-public class Clazz {
+public class StringPool {
     public static void main(String[] args) {
 
         System.out.println("m1 = " + m1());
