@@ -37,50 +37,24 @@ public class Alphanumeric {
 //                        .reduce(0, (x, y) -> x + y);
             }
         }
+
+        //Second option
+                for (char ch : charArray) {
+                    if (ch >= 'a' && ch <= 'z') {
+                        sum += ch - 'a' + 1; // ASCII of 'a' is 97
+                    } else if (ch >= 'A' && ch <= 'Z') {
+                        sum += ch - 'A' + 1; // ASCII of 'A' is 65
+                    } else if (ch >= '0' && ch <= '9') {
+                        sum += ch - '0';     // ASCII of '0' is 48
+                    }
+                }
+
+                System.out.println("Sum of \"" + charArray + "\" is: " + sum);
         return sum;
     }
 
     public static void main(String[] args) throws IOException {
         String s = "hello123";
-//        System.out.println(alphanumeric(s.toCharArray()));
-        int[] num = {2, 3, 10, 7, 15, 5, 9, 20, 21, 13, 6, 8};
-
-        int[] ints = primeNumber(num);
-        for (Integer a : ints) {
-            System.out.println(a);
-        }
+        System.out.println(alphanumeric(s.toCharArray()));
     }
-//        System.out.println("Enter a number");
-//        InputStreamReader reader = new InputStreamReader(System.in);
-//        BufferedReader br = new BufferedReader(reader);
-//        int line = Integer.parseInt(br.readLine());
-//        br.close();
-/*        Scanner sc = new Scanner(System.in);
-        int line = sc.nextInt();
-        for (int i = 0; i <= line; i++) {
-            i *=5;
-            System.out.println(i + " *" + " 5 " + " = " +i*5);
-        }
-    }*/
-
-    private static int[] primeNumber(int[] num) {
-        int[] result = new int[num.length * 2];
-        int k = 0;
-
-        for (int i = 0; i < num.length - 1; i++) {
-            if (num[i]==2 || num[i]==3){
-                result[k++] = num[i];
-            }else {
-                for (int j = 2; j < num[i] / 2; j++) {
-                    if (num[i] % j == 0) {
-                        break;
-                    }else {
-                        result[k++] = num[i];
-                    }
-                }
-            }
-        }
-        return result;
-    }
-
 }
