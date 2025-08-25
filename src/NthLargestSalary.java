@@ -13,7 +13,7 @@ public class NthLargestSalary {
               .entrySet()
               .stream()
               .sorted(Collections.reverseOrder(Map.Entry.comparingByKey()))
-              .collect(Collectors.toList()).get(sum-1));
+              .toList().get(sum-1));
   }
 
 
@@ -36,9 +36,9 @@ public class NthLargestSalary {
         Integer num[][] = {{1, 2, 3}, {8, 9, 10}, {15, 18, 19}};
         System.out.println(
                 Arrays.stream(num)
-                        .flatMap(a -> Arrays.stream(a))
+                        .flatMap(Arrays::stream)
                         .sorted(Collections.reverseOrder())
-                        .collect(Collectors.toList())
+                        .toList()
                         .get(2));
     }
 }
