@@ -1,5 +1,5 @@
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.IntStream;
 
@@ -43,7 +43,7 @@ public class OddEvenMultiThread extends Thread {
         oe2.start();
 
 //        =======Using Completable Future========
-        Executor e = Executors.newFixedThreadPool(2);
+        ExecutorService e = Executors.newFixedThreadPool(2);
         IntStream.range(1, 10).forEach(num -> {
             CompletableFuture<Integer> evenCompletableFuture = CompletableFuture.completedFuture(num)
                     .thenApplyAsync(x -> {
@@ -77,5 +77,6 @@ public class OddEvenMultiThread extends Thread {
             },e);
             odd.join();
         });
+        e.shutdown();
     }
 }
