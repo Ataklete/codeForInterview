@@ -12,7 +12,7 @@ import java.util.stream.Stream;
   output: -2, 1*/
 public class Sumoftwo {
 
-    public static void sumToNumbers(int[] arr){
+    public static void sumToNumbersWithMap(int[] arr){
 
         Map<Integer, List<Integer>> map = new TreeMap<>();
         for (int i = 0; i <= arr.length - 1; i++) {
@@ -22,13 +22,61 @@ public class Sumoftwo {
         }
         System.out.println(map.entrySet().stream().filter(x -> x.getKey() >= 0).findFirst().get().getValue());
     }
-    public static void main(String[] args) {
+    public static void sumToNumbers(int[] arr){
 
-        sumToNumbers(new int[]{2, 8, 7, 0, -1, -5, 3, -2});
-        sumToNumbers(new int[]{13, 1, 4, 6, -2, -9, -20});
+                // Edge case: need at least two elements
+                if (arr == null || arr.length < 2) {
+                    System.out.println("Array must contain at least two elements.");
+                    return;
+                }
+
+                // Step 1: Sort the array
+                Arrays.sort(arr);
+
+                // Step 2: Initialize pointers
+                int left = 0;
+                int right = arr.length - 1;
+
+                // Store the result
+                int minSum = Integer.MAX_VALUE;
+                int minLeft = left;
+                int minRight = right;
+
+                // Step 3: Two-pointer traversal
+                while (left < right) {
+                    int sum = arr[left] + arr[right];
+
+                    // Update minimum if needed
+                    if (Math.abs(sum) < Math.abs(minSum)) {
+                        minSum = sum;
+                        minLeft = left;
+                        minRight = right;
+                    }
+
+                    // Move pointers
+                    if (sum < 0) {
+                        left++;
+                    } else if (sum > 0) {
+                        right--;
+                    } else {
+                        // Perfect zero sum found
+                        break;
+                    }
+                }
+
+                // Output the result
+                System.out.println("The two elements whose sum is closest to zero are: "
+                        + arr[minLeft] + " and " + arr[minRight]);
+                System.out.println("Sum = " + minSum);
+            }
+    }
+    void main() {
+
+        Sumoftwo.sumToNumbers(new int[]{2, 8, 7, 0, -1, -5, 3, -2});
+        Sumoftwo.sumToNumbers(new int[]{13, 1, 4, 6, -2, -9, -20});
 
         }
-    }
+
 
 
 
